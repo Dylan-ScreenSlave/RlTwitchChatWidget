@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rocket League Twitch Chat</title>
+  <style>
+    /* General Chatbox Styles */
+    body {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker and more opaque */
+  border-radius: 5px; /* Rounded edges for style */
+  padding: 10px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+    /* Individual Chat Lines */
+    .chat-line {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    /* Random Blue or Orange Colors */
+    .chat-line.blue {
+      color: #3498db; /* Rocket League Blue */
+    }
+    .chat-line.orange {
+      color: #e67e22; /* Rocket League Orange */
+    }
+
+
+
+    body {
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  background-image: url('https://t3.ftcdn.net/jpg/05/71/06/76/240_F_571067620_JS5T5TkDtu3gf8Wqm78KoJRF1vobPvo6.jpg'); /* Placeholder image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div id="chatbox"></div>
+
+  <script>
+    // Get the chatbox element
+    const chatbox = document.getElementById('chatbox');
+
+    // Function to add a chat line (simulating chat for now)
+    function addChatLine(username, message) {
+      const chatLine = document.createElement('div');
+      chatLine.classList.add('chat-line');
+
+      // Randomly assign blue or orange class
+      const randomColor = Math.random() > 0.5 ? 'blue' : 'orange';
+      chatLine.classList.add(randomColor);
+
+      // Add username and message
+      chatLine.innerHTML = `<strong>${username}:</strong> ${message}`;
+
+      // Append to the chatbox
+      chatbox.appendChild(chatLine);
+
+      // Auto-scroll to the bottom
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    // Example: Adding random chat lines every 2 seconds
+    setInterval(() => {
+      const username = `User${Math.floor(Math.random() * 1000)}`;
+      const message = 'This is a random chat message!';
+      addChatLine(username, message);
+    }, 2000);
+  </script>
+</body>
+</html>
